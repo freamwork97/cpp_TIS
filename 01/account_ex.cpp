@@ -4,10 +4,10 @@
 const int NAME_LEN = 20;      // 고객 이름 길이
 const int MAX_CUS_NUM = 100;  // 최대 고객 수
 
-void ShowMenu(void);     // 메뉴 출력
-void MakeAccount(void);  // 계좌 생성
-// void DepositMoney(void);    // 입금
-// void WithdrawMoney(void);   // 출금
+void ShowMenu(void);       // 메뉴 출력
+void MakeAccount(void);    // 계좌 생성
+void DepositMoney(void);   // 입금
+void WithdrawMoney(void);  // 출금
 // void ShowAllAccInfo(void);  // 모든 계좌 정보 출력
 
 enum { MAKE = 1, DEPOSIT, WITHDRAW, INQUIRE, EXIT };
@@ -35,10 +35,10 @@ int main(void) {
         MakeAccount();
         break;
       case DEPOSIT:
-        // DepositMoney();
+        DepositMoney();
         break;
       case WITHDRAW:
-        // WithdrawMoney();
+        WithdrawMoney();
         break;
       case INQUIRE:
         // ShowAllAccInfo();
@@ -77,3 +77,22 @@ void MakeAccount(void) {
 
   accNum++;
 }
+
+void DepositMoney(void) {
+  int id, money;
+  std::cout << std::endl;
+  std::cout << "[DepositMoney]" << std::endl;
+  std::cout << "Account ID: ";
+  std::cin >> id;
+
+  for (int i = 0; i < accNum; i++) {
+    std::cout << "DepositMoney: ";
+    std::cin >> money;
+    account[i].balance += money;
+    std::cout << "Deposit completed" << std::endl;
+    return;
+  }
+  std::cout << "Invalid input." << std::endl;
+}
+
+void WithdrawMoney(void) {}
