@@ -4,8 +4,8 @@
 const int NAME_LEN = 20;      // 고객 이름 길이
 const int MAX_CUS_NUM = 100;  // 최대 고객 수
 
-void ShowMenu(void);  // 메뉴 출력
-// void MakeAccount(void);     // 계좌 생성
+void ShowMenu(void);     // 메뉴 출력
+void MakeAccount(void);  // 계좌 생성
 // void DepositMoney(void);    // 입금
 // void WithdrawMoney(void);   // 출금
 // void ShowAllAccInfo(void);  // 모든 계좌 정보 출력
@@ -32,7 +32,7 @@ int main(void) {
 
     switch (choice) {
       case MAKE:
-        // MakeAccount();
+        MakeAccount();
         break;
       case DEPOSIT:
         // DepositMoney();
@@ -42,6 +42,7 @@ int main(void) {
         break;
       case INQUIRE:
         // ShowAllAccInfo();
+        break;
       case EXIT:
         return 0;
       default:
@@ -62,4 +63,17 @@ void ShowMenu(void) {
   std::cout << "4. ShowAllAccInfo" << std::endl;
   std::cout << "5. EXIT" << std::endl;
   std::cout << std::endl;
+}
+
+void MakeAccount(void) {
+  std::cout << std::endl;
+  std::cout << "MakeAccount" << std::endl;
+  std::cout << "Account ID: ";
+  std::cin >> account[accNum].accID;
+  std::cout << "Name: ";
+  std::cin >> account[accNum].cusName;
+  std::cout << "DepositMoney: ";
+  std::cin >> account[accNum].balance;
+
+  accNum++;
 }
