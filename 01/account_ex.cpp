@@ -54,6 +54,7 @@ int main(void) {
   return 0;
 }
 
+// 전체 메뉴
 void ShowMenu(void) {
   std::cout << std::endl;
   std::cout << "--------Menu------------" << std::endl;
@@ -65,6 +66,7 @@ void ShowMenu(void) {
   std::cout << std::endl;
 }
 
+// 계좌 생성
 void MakeAccount(void) {
   std::cout << std::endl;
   std::cout << "MakeAccount" << std::endl;
@@ -78,6 +80,7 @@ void MakeAccount(void) {
   accNum++;
 }
 
+// 입금
 void DepositMoney(void) {
   int id, money;
   std::cout << std::endl;
@@ -95,6 +98,7 @@ void DepositMoney(void) {
   std::cout << "Invalid input." << std::endl;
 }
 
+// 출금
 void WithdrawMoney(void) {
   int id, money;
 
@@ -104,10 +108,10 @@ void WithdrawMoney(void) {
   std::cin >> id;
 
   for (int i = 0; i < accNum; i++) {
-    if (account[i].accID == id) {
+    if (account[i].accID == id) {  // 아이디 확인
       std::cout << "WithdrawMoney: ";
       std::cin >> money;
-      if (account[i].balance < money) {
+      if (account[i].balance < money) {  // 잔액에 따라서 다르게 실행된다
         std::cout << "a lack of balance" << std::endl;
         return;
       } else {
@@ -120,6 +124,7 @@ void WithdrawMoney(void) {
   std::cout << "Invalid input." << std::endl;
 }
 
+// 전체계좌확인
 void ShowAllAccInfo(void) {
   std::cout << std::endl;
   std::cout << "[Account information]" << std::endl;
